@@ -42,20 +42,26 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Log',
-    meta: { title: '日志管理', icon: 'example' },
+    meta: { title: '系统监控', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: '行为日志',
-        component: () => import('@/views/log/actlog'),
-        meta: { title: '行为日志', icon: 'table' }
+        path: 'infolog',
+        name: '操作日志',
+        component: () => import('@/views/log/log'),
+        meta: { title: '操作日志', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: '请求日志',
-        component: () => import('@/views/log/reqlog'),
-        meta: { title: '请求日志', icon: 'tree' }
-      }
+        path: 'errorlog',
+        name: '异常日志',
+        component: () => import('@/views/log/erlog'),
+        meta: { title: '异常日志', icon: 'table' }
+      },
+      {
+        path: 'servers',
+        name: '服务监控',
+        component: () => import('@/views/server/index'),
+        meta: { title: '服务监控', icon: 'table' }
+      },
     ]
   },
   {
@@ -84,6 +90,21 @@ export const constantRouterMap = [
         meta: { title: '编辑图书', icon: 'tree' },
         hidden: true
       }
+    ]
+  },
+  {
+    path: '/tool',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Log',
+    meta: { title: '系统工具', icon: 'example' },
+    children: [
+      {
+        path: 'jiekou',
+        name: '接口文档',
+        component: () => import('@/views/tools/swagger'),
+        meta: { title: '接口文档', icon: 'table' }
+      },
     ]
   },
   {

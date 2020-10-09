@@ -15,7 +15,12 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+// 代码高亮
+import VueHighlightJS from 'vue-highlightjs'
+import 'highlight.js/styles/atom-one-dark.css'
+
 Vue.use(ElementUI, { locale })
+Vue.use(VueHighlightJS)
 
 Vue.config.productionTip = false
 
