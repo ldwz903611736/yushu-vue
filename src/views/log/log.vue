@@ -26,6 +26,11 @@
         <el-button type="default" @click="resetData()">清空</el-button>
       </el-form-item>
     </el-form>
+    <!--<el-row>
+      <el-button type="danger" size="mini" icon="el-icon-delete">清空</el-button>
+      <el-button type="success" size="mini" icon="el-icon-download" @click="downloadInfo()">导出</el-button>
+    </el-row>
+    <br/>-->
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -75,6 +80,12 @@
 <script>
 // 引入调用的相关api下的js文件
 import log from '@/api/log/log'
+import download from "../../utils/download";
+
+/*import {
+  initData,
+  download
+} from '@/api/data'*/
 
 export default {
   // 写核心代码
@@ -107,6 +118,10 @@ export default {
       this.sysLogQuery = {}
       // 查询所有
       this.getList()
+    },
+
+    downloadInfo() {
+      download.downloadMethod()
     }
   }
 }

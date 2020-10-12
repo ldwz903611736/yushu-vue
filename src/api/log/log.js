@@ -23,5 +23,13 @@ export default {
       url: `/syslog/exception/${id}`,
       method: 'get'
     })
-  }
+  },
+
+  downloadInfo(url) {
+    return request({
+      url: url,
+      method: 'get',
+      responseType: 'blob'
+    })
+  },
 }

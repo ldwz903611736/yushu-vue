@@ -1,9 +1,10 @@
 import request from '@/utils/request'
 
-export function login() {
+export function login(username, password) {
   return request({
     url: '/user/brlogin',
-    method: 'get'
+    method: 'get',
+    params: { username, password}
   })
 }
 

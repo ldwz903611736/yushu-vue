@@ -28,39 +28,39 @@ export const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/index',
     name: '首页',
     children: [{
-      path: 'dashboard',
+      path: 'index',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'table' }
+      meta: { title: '首页', icon: 'index' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/system',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/system/table',
     name: 'Log',
-    meta: { title: '系统监控', icon: 'example' },
+    meta: { title: '系统监控', icon: 'monitor' },
     children: [
       {
         path: 'infolog',
         name: '操作日志',
         component: () => import('@/views/log/log'),
-        meta: { title: '操作日志', icon: 'table' }
+        meta: { title: '操作日志', icon: 'log' }
       },
       {
         path: 'errorlog',
         name: '异常日志',
         component: () => import('@/views/log/erlog'),
-        meta: { title: '异常日志', icon: 'table' }
+        meta: { title: '异常日志', icon: 'error' }
       },
       {
         path: 'servers',
         name: '服务监控',
         component: () => import('@/views/server/index'),
-        meta: { title: '服务监控', icon: 'table' }
+        meta: { title: '服务监控', icon: 'codeConsole' }
       },
     ]
   },
@@ -69,42 +69,57 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/nested/menu1',
     name: '首页管理',
-    meta: { title: '首页管理', icon: 'nested' },
+    meta: { title: '首页管理', icon: 'system' },
     children: [
       {
         path: 'list',
         name: '首页数据',
         component: () => import('@/views/front/list'),
-        meta: { title: '首页数据', icon: 'tree' }
+        meta: { title: '首页数据', icon: 'education' }
       },
       {
         path: 'add',
         name: '添加图书',
         component: () => import('@/views/front/add'),
-        meta: { title: '添加图书', icon: 'tree' }
+        meta: { title: '添加图书', icon: 'education' }
       },
       {
         path: 'edit/:id',
         name: '编辑图书',
         component: () => import('@/views/front/edit'),
-        meta: { title: '编辑图书', icon: 'tree' },
+        meta: { title: '编辑图书', icon: 'education' },
         hidden: true
       }
     ]
   },
   {
-    path: '/tool',
+    path: '/record',
+    component: Layout,
+    redirect: '/nested/menu1',
+    name: '鱼漂记录',
+    meta: { title: '鱼漂记录', icon: 'education' },
+    children: [
+      {
+        path: 'list',
+        name: '鱼漂记录',
+        component: () => import('@/views/record/record'),
+        meta: { title: '鱼漂记录', icon: 'education' }
+      }
+    ]
+  },
+  {
+    path: '/sys-tools',
     component: Layout,
     redirect: '/example/table',
     name: 'Log',
-    meta: { title: '系统工具', icon: 'example' },
+    meta: { title: '系统工具', icon: 'sys-tools' },
     children: [
       {
-        path: 'jiekou',
+        path: 'swagger',
         name: '接口文档',
         component: () => import('@/views/tools/swagger'),
-        meta: { title: '接口文档', icon: 'table' }
-      },
+        meta: { title: '接口文档', icon: 'swagger' }
+      }
     ]
   },
   {
@@ -118,7 +133,7 @@ export const constantRouterMap = [
         path: 'chart',
         name: '统计分析',
         component: () => import('@/views/statistics/chart'),
-        meta: { title: '统计分析', icon: 'table' }
+        meta: { title: '统计分析', icon: 'chart' }
       }
     ]
   },
